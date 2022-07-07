@@ -1,0 +1,708 @@
+body {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  color: #6c7279;
+  background-color: #fff;
+}
+/* у тега body по умолчанию есть отступы,
+поэтому мы их сбрасываем.
+-webkit-font-smoothing: antialiased - сглаживает шрифты */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+/* для всех элементов + псевдоэлементов установили свойство,
+кот позволяет сохранить размер блоков с учетом 
+внутренних padding, в этом случае
+не нужно просчитывать размер блоков
+с учетом padding. При его отсутствии, например если 
+например блок 400px и пединги по 20px, блок станет 440px шириной */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+/* у всех заголовков h в браузере по умолчанию
+есть margin вверху и внизу, поэтому мы их сразу сбрасываем*/
+
+p {
+  margin: 0 0 10px 0;
+}
+/* у р тоже есть отступы сверху и снизу по умолчанию
+мы сбрасываем и оставляем пока в низу */
+
+/* Container
+=================== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+/* мы побавили пединг по 15 слева и справа
+и добавили 30 в ширину, чтобы когда расшир экрана
+будет меняться - контент вплотную не прилягал к экрану */
+
+/* Header
+=================== */
+.header {
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+/* мы сделали header по верх блока intro */
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 0;
+  border-bottom: 1px solid #515369;
+}
+
+/* Nav
+===================== */
+.nav {
+  display: flex;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.nav-link {
+  margin-left: 50px;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opasity 0.1s linear;
+}
+
+.nav-link:first-child {
+  margin-left: 0;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+/* Intro
+================= */
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 750px;
+  padding-top: 100px;
+  background: #31344e url(images/intro-bg.jpg) center no-repeat;
+  background-size: cover;
+}
+/* colum значит что каждый элемент лока будет начинаться с новой строки
+и занимать всю ширину экрана
+center выровляли ячейки по центру блока intro */
+
+.intro-inner {
+  width: 100%;
+  max-width: 970;
+  margin: 0 auto;
+  text-align: center;
+}
+/* margin: 0 auto - выровняли по центру */
+
+.intro-title {
+  margin: 0 0 30px;
+  font-size: 65px;
+  line-height: 71px;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+/* у всех заголовков h в браузере по умолчанию
+есть margin вверху и внизу, поэтому пока ставим 0, а далее выровняем как нужно.
+line-height - межстрочный отступ, лучше не ист размеры в пикселях,
+в данном примере он 71px, в уроке он изменил относительно font-size и получилось 1.1 */
+
+.intro-subtitle {
+  margin-bottom: 60px;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #fff;
+  font-weight: 400;
+}
+
+/* Button
+====================== */
+.btn {
+  display: inline-block;
+  vertical-align: top;
+  padding: 14px 40px;
+  border-radius: 2px;
+  font-family: "Raleway", sans-serif;
+  border: 0;
+  cursor: pointer;
+  font-size: 13px;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.1s linear;
+}
+/* display: inline-block - означает элемент, который продолжает находиться в строке (inline), но при этом может 
+иметь важные свойства блока, чтобы мы могли задать padding.
+vertical-align: top - выравнивание по вертикальной границе по верху.
+если мы делаем кнопку тегом а, лучше сравнить что получ при исп тега button, стили
+могут отличаться, чтобы подкоректировать*/
+
+.btn--red {
+  background-color: #e84545;
+}
+
+.btn--red:hover {
+  background-color: #dd3434;
+}
+
+.btn--long {
+  min-width: 280px;
+}
+
+/* Features 
+===================*/
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 95px 0;
+}
+
+.features-item {
+  padding: 0 40px;
+  margin: 20px 0;
+  width: 33.33333%;
+  text-align: center;
+}
+
+.features-icon {
+  margin-bottom: 25px;
+}
+
+.features-title {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #2d3033;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.features-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #6c7279;
+}
+
+/* Works 
+==================*/
+.works {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.works-item {
+  width: 25%;
+  height: 350px;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  position: relative;
+  overflow: hidden;
+}
+/* overflow: hidden - спрятать все, что вылезает за пределы блока */
+
+.works-item:hover .works-content {
+  opacity: 1;
+}
+
+.works-photo {
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* transform: translate3d(-50px, -50px, 0); */
+}
+/* топ и лефт поставили по 50 чтобы выло видно цетральную часть фото,
+т к само фото больше, transform: translate3d так же выровняли ось: х, у, z  */
+/* Свойство z-index определяет положение 
+элемента и нижестоящих элементов по оси z. 
+В случае перекрытия элементов, это значение 
+определяет порядок наложения. В общем случае, 
+элементы с большим z-index перекрывают элементы 
+с меньшим. */
+/* min-width: 100% - добавили при написании медиазапросов,
+так как фото не подходило по размеру. Или можно было вставить
+фото других размеров */
+
+.works-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(232, 69, 69, 0.9);
+  text-align: center;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transition: opacity 0.2s linear;
+}
+/* opacity: 0 - текст пропадает, сделаем появл при наводе на картинку */
+/* flex-direction: column - чтобы вторая странова начиналась с новой строки */
+/* background-color: rgba - этот фотмат указываем для того чтобы добавить прозрачности
+первые три цифры взяли из фотошопа в цветах и последняя - 
+уровень прозрачности */
+
+.works-title {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.works-text {
+  font-size: 14px;
+  color: #fff;
+}
+
+/* Team 
+===================*/
+.team {
+  margin: 100px 0 70px;
+}
+
+.team-inner {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.team-item {
+  padding: 0 15px;
+  width: 25%;
+  margin-bottom: 30px;
+}
+
+.team-photo {
+  margin-bottom: 20px;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.team-name {
+  margin-bottom: 8px;
+  font-size: 22px;
+  color: #2d3033;
+}
+
+.team-prof {
+  margin-bottom: 15px;
+  font-size: 13px;
+  color: #e84545;
+  text-transform: uppercase;
+}
+
+.team-text {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #6c7279;
+}
+/*как считать line-height, тут он 21px, а это полтора от 14px font-size */
+
+/* Social */
+.social {
+  display: flex;
+}
+
+.social--footer {
+  justify-content: center;
+}
+
+.social-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e8ecee;
+  background-color: #fff;
+  margin-right: 4px;
+  transition: backgroung 0.1s linear;
+}
+
+.social-item:hover {
+  background-color: #e8ecee;
+}
+
+.social-item:hover .social-icon {
+  fill: #000;
+}
+
+.social--footer .social-item {
+  background-color: transparent;
+  border-width: 2px;
+  border-color: #fff;
+  border-radius: 2px;
+}
+/* border-width - толшина границы */
+
+.social--footer .social-item:hover {
+  background-color: #fff;
+}
+
+.social-icon {
+  display: block;
+  height: 18px;
+  fill: #c6cacc;
+  transition: fill 0.1s linear;
+}
+
+.social--footer .social-icon {
+  fill: #fff;
+}
+
+/* Reviews
+================== */
+.reviews {
+  overflow: hidden;
+  background-color: #53354a;
+}
+
+.reviews-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.reviews-photo {
+  width: 50%;
+  height: 500px;
+  position: relative;
+}
+
+.reviews-img {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.reviews-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  padding-left: 80px;
+}
+
+.reviews-text {
+  margin-bottom: 25px;
+  font-family: "Cardo", sans-serif;
+  font-style: italic;
+  font-size: 36px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.reviews-author {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* Download
+=============== */
+.download {
+  margin: 90px 0;
+  text-align: center;
+}
+
+.download-title {
+  margin-bottom: 10px;
+  font-size: 28px;
+  color: #2d3033;
+  font-weight: 300;
+}
+
+.download-text {
+  margin-bottom: 30px;
+  font-size: 13px;
+  color: #2d3033;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Footer
+=================== */
+.footer {
+  background-color: #3a3e64;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 70px 0;
+}
+
+.footer-block {
+  width: 33.33333%;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.footer-title {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.footer-adress {
+  font-size: 14px;
+  line-height: 1.5;
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.5);
+}
+/* rgba исп-ли так как у текста есть прозрачность,
+так же у тега adress есть стили по умолчанию, поэтому стилизуем доп-но*/
+
+.footer-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Copyright
+=================== */
+
+.copyright {
+  padding: 20px 0;
+  background-color: #313454;
+}
+
+.copyright-text {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #808080;
+}
+
+.copyright-text span {
+  color: #fff;
+}
+
+/* Burger 
+=================*/
+.burger {
+  display: none;
+  padding: 9px 2px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.burger-item {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: #fff;
+  font-size: 0;
+  color: transparent;
+  position: relative;
+}
+
+.burger-item:before,
+.burger-item:after {
+  content: "";
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+/* content: "" - может быть указан текст, в этом
+конкретном случае он нам не нужен */
+
+.burger-item:before {
+  width: 30px;
+  top: -8px;
+}
+
+.burger-item:after {
+  width: 26px;
+  bottom: -8px;
+}
+
+/* ///////////////////////
+////////////////////// */
+
+/* Media
+================ */
+@media (max-width: 1300px) {
+  /* Works */
+  .works-item {
+    width: 50%;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Nav */
+  .nav {
+    display: none;
+  }
+
+  /* Burger */
+  .burger {
+    display: block;
+  }
+
+  /* Intro */
+  .intro-title {
+    font-size: 40px;
+  }
+
+  /* Features */
+  .features-item {
+    width: 50%;
+  }
+
+  /* Team */
+  .team-item {
+    width: 50%;
+    text-align: center;
+  }
+
+  .team-photo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .social {
+    justify-content: center;
+  }
+
+  /* Reviews */
+  .reviews-photo {
+    width: 100%;
+    margin: 15px 0 40px;
+    overflow: hidden;
+  }
+
+  .reviews-content {
+    width: 100%;
+    padding-left: 0;
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .intro {
+    height: auto;
+    padding-top: 130px;
+    padding-bottom: 30px;
+  }
+
+  /* убраем фиксированную высоту с маленького
+    расширения, чтобы контент не вылез */
+
+  .intro-title {
+    font-size: 40px;
+  }
+
+  .intro-subtitle {
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  /* Features */
+  .features {
+    margin: 40px 0;
+  }
+
+  .features-item {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Works */
+  .works-item {
+    width: 100%;
+    height: 300px;
+  }
+
+  /* Team */
+  .team {
+    margin: 60px 0 30px;
+  }
+
+  .team-item {
+    width: 100%;
+  }
+
+  /* Reviews */
+  .reviews-text {
+    font-size: 25px;
+  }
+
+  /* Btn */
+  .btn--long {
+    min-width: 260px;
+  }
+
+  /* Download */
+  .download {
+    margin: 50px 0;
+  }
+
+  .download-title {
+    font-size: 24px;
+  }
+
+  /* Footer */
+  .footer-inner {
+    padding: 30px 0;
+  }
+
+  .footer-block {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .footer-block:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 414px) {
+  /* Reviews */
+  .reviews-img {
+    right: -100px;
+  }
+}
